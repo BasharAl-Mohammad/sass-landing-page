@@ -1,86 +1,98 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@import "tailwindcss";
+
 @theme {
-  /* COLORS */
+  /* --- Colors --- */
   --color-p1: #2EF2FF;
   --color-p2: #3C52D9;
   --color-p3: #C8EA80;
   --color-p4: #EAEDFF;
   --color-p5: #C4CBF5;
-
+  
   --color-s1: #080D27;
   --color-s2: #0C1838;
   --color-s3: #334679;
   --color-s4: #1959AD;
   --color-s5: #263466;
 
+  /* Custom Black Overrides */
   --color-black: #000000;
   --color-black-100: #05091D;
 
-  /* FONTS */
-  --font-inter: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  /* --- Fonts --- */
+  --font-inter: "Inter", "sans-serif";
+  --font-poppins: "Poppins", "sans-serif";
 
-  /* SHADOWS */
-  --shadow-100: 0px 4px 4px rgba(0,0,0,.25),
-                0px 16px 24px rgba(0,0,0,.25),
-                inset 0px 3px 6px #1959AD;
+  /* --- Shadows --- */
+  --shadow-100: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD;
+  --shadow-200: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 4px 10px #3391FF;
+  --shadow-300: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 16px 24px rgba(0, 0, 0, 0.25), inset 0px 3px 6px #1959AD;
+  --shadow-400: inset 0px 2px 4px 0 rgba(255, 255, 255, 0.05);
+  --shadow-500: 0px 16px 24px rgba(0, 0, 0, 0.25), 0px -14px 48px rgba(40, 51, 111, 0.7);
 
-  --shadow-200: 0px 4px 4px rgba(0,0,0,.25),
-                0px 16px 24px rgba(0,0,0,.25),
-                inset 0px 4px 10px #3391FF;
+  /* --- Spacing --- */
+  /* Note: Slashes in names like 1/5 are handled automatically by Tailwind logic 
+     or replaced with dashes in variables */
+  --spacing-1\/5: 20%;
+  --spacing-2\/5: 40%;
+  --spacing-3\/5: 60%;
+  --spacing-4\/5: 80%;
+  --spacing-3\/20: 15%;
+  --spacing-7\/20: 35%;
+  --spacing-9\/20: 45%;
+  --spacing-11\/20: 55%;
+  --spacing-13\/20: 65%;
+  --spacing-15\/20: 75%;
+  --spacing-17\/20: 85%;
+  --spacing-19\/20: 95%;
+  
+  --spacing-22: 88px;
+  --spacing-100: 100px;
+  --spacing-330: 330px;
+  --spacing-388: 388px;
+  --spacing-400: 400px;
+  --spacing-440: 440px;
+  --spacing-512: 512px;
+  --spacing-640: 640px;
+  --spacing-960: 960px;
+  --spacing-1230: 1230px;
 
-  --shadow-500: 0px 16px 24px rgba(0,0,0,.25),
-                0px -14px 48px rgba(40,51,111,.7);
+  /* --- Z-Index --- */
+  --z-index-1: 1;
+  --z-index-2: 2;
+  --z-index-4: 4;
 
-  /* RADII */
+  /* --- Line Height --- */
+  --leading-12: 48px;
+
+  /* --- Border Radius --- */
   --radius-14: 14px;
   --radius-20: 20px;
   --radius-40: 40px;
   --radius-half: 50%;
-
-  /* Z */
-  --z-1: 1;
-  --z-2: 2;
-  --z-4: 4;
-
-  /* SPACING */
-  --spacing-22: 88px;
-  --spacing-100: 100px;
-  --spacing-512: 512px;
-  --spacing-960: 960px;
-  --spacing-1230: 1230px;
+  --radius-7xl: 40px;
 }
 
-@layer base {
-  html {
-    @apply bg-s1;
-  }
-
-  body {
-    @apply font-poppins text-[16px] tracking-[-0.03em] text-p5;
-  }
-
-  a {
-    @apply no-underline;
-  }
-
-  img {
-    @apply block max-w-full;
-  }
-
-  button {
-    @apply bg-none tracking-[-0.03em];
-  }
-
-  input {
-    @apply tracking-[-0.03em];
-  }
-}
+/* Utilities Layer 
+   Note: Tailwind v4 handles @apply slightly differently but is backward compatible.
+   Flex configurations from v3 config need to be manual classes here as there 
+   isn't a direct --flex variable namespace in v4 theme.
+*/
 
 @layer utilities {
+  /* Restored Flex Config Utilities */
+  .flex-50 { flex: 0 0 50%; }
+  .flex-320 { flex: 1px 0 320px; }
+  .flex-300 { flex: 0 0 300px; }
+  .flex-540 { flex: 0 0 540px; }
+  .flex-280 { flex: 0 0 280px; }
+  .flex-256 { flex: 0 0 256px; }
+  .flex-100 { flex: 0 0 100%; }
+  
+  /* Restored Transition Property */
+  .transition-borderColor { transition-property: border-color; }
+
   /* START of Typography */
   .h-num {
     @apply font-inter text-[72px] font-bold leading-[84px];
@@ -235,8 +247,7 @@
   /*START of Custom Button*/
   .inner-before {
     @apply before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:duration-500 before:content-[''];
-
-    &::before {
+    &::before{ 
       background: linear-gradient(#1b275a, #0e1434);
     }
   }
@@ -249,8 +260,7 @@
   }
 
   .glow-after {
-    @apply after:absolute after:bottom-0 after:left-4 after:z-4 after:h-0.5 after:w-7/20 after:opacity-0 after:transition-all after:duration-500 after:content-[''] group-hover:after:left-3/5 group-hover:after:opacity-40;
-
+    @apply  after:absolute after:bottom-0 after:left-4 after:z-4 after:h-0.5 after:w-7/20 after:opacity-0 after:transition-all after:duration-500 after:content-[''] group-hover:after:left-3/5 group-hover:after:opacity-40;
     &::after {
       background: linear-gradient(to right, transparent, #2ef2ff, transparent);
     }
@@ -297,9 +307,8 @@
   }
 
   .pricing-plan_even {
-    @apply even:rounded-bl-3xl even:rounded-br-3xl even:rounded-tl-3xl even:rounded-tr-3xl even:border-s4;
-
-    &::even {
+    @apply even:g7 even:rounded-bl-3xl even:rounded-br-3xl even:rounded-tl-3xl even:rounded-tr-3xl even:border-s4;
+    &:nth-child(even) {
       background: linear-gradient(#1b275a, #0e1434);
     }
   }
@@ -337,7 +346,7 @@
   }
 
   /* END of Testimonials */
-  /*  START of Download*/
+  /* START of Download*/
   .download_tech-link_last-before {
     @apply last:relative last:before:pointer-events-none last:before:absolute last:before:left-full last:before:top-[calc(50%-1px)] last:before:mr-6 last:before:h-0.5 last:before:w-[140px] last:before:bg-s5 last:before:content-[''] last:before:max-xl:w-[105px] last:before:max-lg:w-[80px] last:before:max-md:hidden;
   }
@@ -359,27 +368,19 @@
   }
 
   .download_preview-before {
-    @apply before:absolute before:-top-0.5 before:right-6 before:h-0.5 before:w-[63.2%] before:opacity-40 before:content-[''];
-
-    &::after {
-      background: linear-gradient(to right, transparent, #2ef2ff, transparent);
-    }
+    @apply before:g8 before:absolute before:-top-0.5 before:right-6 before:h-0.5 before:w-[63.2%] before:opacity-40 before:content-[''];
   }
 
   .download_preview-after {
-    @apply after:absolute after:-bottom-0.5 after:left-6 after:h-0.5 after:w-[42.2%] after:opacity-40 after:content-[''];
-    
-    &::after {
-      background: linear-gradient(to right, transparent, #2ef2ff, transparent);
-    }
+    @apply after:g8 after:absolute after:-bottom-0.5 after:left-6 after:h-0.5 after:w-[42.2%] after:opacity-40 after:content-[''];
   }
 
   .download_preview-dot {
     @apply absolute top-6 size-2.5 rounded-half;
   }
 
-  /*  END of Download*/
-  /*  START of Footer */
+  /* END of Download*/
+  /* START of Footer */
   .legal-after {
     @apply after:absolute after:-right-5 after:top-[calc(50%-1px)] after:h-0.5 after:w-0.5 after:rounded-half after:bg-p2 after:content-[''];
   }
@@ -388,5 +389,31 @@
     @apply flex size-10 items-center justify-center rounded-full border-2 border-s4/25 bg-s1/5 transition-all duration-500 hover:border-s4;
   }
 
-  /*  END of Footer*/
+  /* END of Footer*/
+}
+
+@layer base {
+  html {
+    @apply bg-s1;
+  }
+
+  body {
+    @apply font-poppins text-[16px] tracking-[-0.03em] text-p5;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  button {
+    @apply bg-none tracking-[-0.03em];
+  }
+
+  input {
+    @apply tracking-[-0.03em];
+  }
 }
