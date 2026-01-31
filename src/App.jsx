@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './sections/Header'
 import Hero from './sections/Hero'
-import Hero from './sections/Features'
+import Features from './sections/Features'
 
 const App = () => {
   return (

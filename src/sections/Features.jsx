@@ -1,4 +1,5 @@
 import React from "react";
+import { Element } from "react-scroll";
 import {features} from '../constants/index'
 
 
@@ -10,9 +11,7 @@ const Features = () => {
                 >
                     <div className="relative flex">
                         {features.map( (feature) => (
-                            <div key={feature.id}>
-                                {feature.title}
-                            </div>
+                            <div key={feature.id}>{feature.title}</div>
                         ))}
                     </div>
                 </div>
