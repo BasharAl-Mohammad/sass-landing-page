@@ -27,7 +27,7 @@ const Pricing = () => {
             </div>
             <div className="pricing-bg">
               <img src="/images/bg-outlines.svg" width={960} height={380} alt="" className='relative z-2' />
-              <img src="/images/bg-outlines-fill.svg" width={960} height={380} alt="" className='absolute inset-0 opacity-5 mix-blend-soft-light' />
+              <img src="/images/bg-outlines-fill.png" width={960} height={380} alt="" className='absolute inset-0 opacity-5 mix-blend-soft-light' />
             </div>
           </div> 
 
